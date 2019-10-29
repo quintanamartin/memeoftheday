@@ -1,4 +1,4 @@
-export { checkStatus, formatMemes };
+export { checkStatus, formatMemes, filterBySize, sortAscendant };
 
 function checkStatus(response) {
   response.status === 200
@@ -16,4 +16,12 @@ function formatMemes(memes) {
     height,
     url
   };
+}
+
+function filterBySize(memes, size) {
+  return memes.filter(meme => meme.width >= size || meme.height >= size);
+}
+
+function sortAscendant(response) {
+  return response.sort((a, b) => Number(a.id) - Number(b.id));
 }
