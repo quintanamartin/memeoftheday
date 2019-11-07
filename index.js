@@ -8,24 +8,26 @@ let memesArr;
 
 function getMemeOfTheDay(memes) {
   const currentDate = new Date().getDate();
-  const memeURL = memes[currentDate].url;
+  const memeURL = memes[currentDate - 1].url;
   memeImage.setAttribute('src', `${memeURL}`);
 }
 
-function getRandomMeme(memes) {
+function getRandomNumber(memes) {
   const randomNum = Math.floor(Math.random() * memes.length);
   const randomNumber = memes[randomNum];
   return randomNumber;
 }
 
-function showRandomMeme() {
-  const randomMeme = getRandomMeme(memesArr);
+function getRandomMeme(memesArr) {
+  const randomMeme = getRandomNumber(memesArr);
   console.log(randomMeme);
-  const memeAlt = memesArr[randomNumber].name;
-  const memeUrl = memesArr[randomNumber].url;
-  memeImage.setAttribute('src', `${memeUrl}`);
-  memeImage.setAttribute('alt', `${memeAlt}`);
+  memeImage.alt = randomMeme.name;
+  memeImage.src = randomMeme.url;
   return memeImage;
+}
+
+function showRandomMeme() {
+  buttonMeme.addEventListener('click', getRandomMeme(memesArr));
 }
 
 getMemes(ENDPOINT)
@@ -36,6 +38,5 @@ getMemes(ENDPOINT)
     console.dir(sortedMemes);
     memesArr = sortedMemes;
     getMemeOfTheDay(memesArr);
+    showRandomMeme();
   });
-
-buttonMeme.addEventListener('click', showRandomMeme());
