@@ -1,7 +1,7 @@
 import { getMemes, ENDPOINT } from './api.js';
 import { formatMemes, filterBySize, sortAscendant } from './utils.js';
 
-const main = document.getElementsByTagName('main');
+const title = document.querySelector('.title');
 const memeImage = document.querySelector('.meme');
 const buttonMeme = document.querySelector('.get-meme');
 let memesArr;
@@ -27,6 +27,8 @@ function getRandomMeme(memesArr) {
 
 function showRandomMeme() {
   buttonMeme.addEventListener('click', getRandomMeme(memesArr));
+  title.innerHTML = 'Random meme';
+  buttonMeme.innerHTML = 'Get another random meme';
 }
 
 getMemes(ENDPOINT)
