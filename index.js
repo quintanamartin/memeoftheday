@@ -20,10 +20,9 @@ function getRandomNumber(memes) {
 
 function getRandomMeme(memesArr) {
   const randomMeme = getRandomNumber(memesArr);
-  console.log(randomMeme);
   memeImage.alt = randomMeme.name;
   memeImage.src = randomMeme.url;
-  return memeImage;
+  //return memeImage;
 }
 
 function showRandomMeme() {
@@ -38,5 +37,7 @@ getMemes(ENDPOINT)
     console.dir(sortedMemes);
     memesArr = sortedMemes;
     getMemeOfTheDay(memesArr);
-    showRandomMeme();
+    buttonMeme.addEventListener('click', function() {
+      showRandomMeme();
+    });
   });
