@@ -5,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Random memes</title>
-    <link href="styles.css" rel="stylesheet" />
+    <link href="/public/build/tailwind.css" rel="stylesheet" />
     <script defer src="index.js" type="module"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap&display=fallback"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/5639852d9d.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="container">
-      <h1 class="title">Meme of the Day</h1>
+    <div class=" flex flex-col container items-center my-auto ">
+      <h1 class="title text-3xl font-bold text-purple-700">Meme of the Day</h1>
 
       <img src="" class="meme" alt="" />
-
-      <button class="get-meme">Get Meme!</button>
+      <button
+        class=" get-meme bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold  mt-4 py-2 px-4 rounded-l"
+      >
+        <i class="far fa-grin-squint"></i>
+        Get meme!
+      </button>
     </div>
   </body>
 </html>
